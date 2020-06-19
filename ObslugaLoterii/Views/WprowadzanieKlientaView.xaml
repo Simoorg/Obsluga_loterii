@@ -1,0 +1,27 @@
+﻿<Window x:Class="ObslugaLoterii.Views.WprowadzanieKlientaWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ObslugaLoterii.Views"
+        mc:Ignorable="d"
+        Title="Wprowadzanie klienta" Height="600" Width="800" 
+        xmlns:ViewModel="clr-namespace:ObslugaLoterii.ViewModels">
+    <Window.DataContext>
+        <ViewModel:WprowadzanieKlientaVM/>
+    </Window.DataContext>
+    <Grid>
+        <TextBlock HorizontalAlignment="Left" Margin="300,41,0,0" TextWrapping="Wrap" Text="Wprowadzanie nowego klienta" VerticalAlignment="Top" Height="55" Width="445" FontSize="30" FontWeight="Bold"/>
+        <Button Content="Powrót" Command="{Binding Powrot}" HorizontalAlignment="Left" Margin="50,47,0,0" VerticalAlignment="Top" Width="200" Height="35"/>
+        <TextBlock x:Name="Imie" HorizontalAlignment="Left" Margin="50,151,0,0" TextWrapping="Wrap" Text="Imię" FontSize="14" VerticalAlignment="Top" Height="29" Width="99" RenderTransformOrigin="0.55,0.167"/>
+        <TextBox x:Name="ImieTB" HorizontalAlignment="Left" Height="30" Margin="198,150,0,0" TextWrapping="Wrap" Text="{Binding Imie}" VerticalAlignment="Top" Width="225"/>
+        <TextBlock x:Name="Nazwisko" HorizontalAlignment="Left" Margin="50,188,0,0" TextWrapping="Wrap" Text="Nazwisko" FontSize="14" VerticalAlignment="Top" Height="29" Width="99" RenderTransformOrigin="0.55,0.167"/>
+        <TextBox x:Name="NazwiskoTB" HorizontalAlignment="Left" Height="30" Margin="198,187,0,0" TextWrapping="Wrap" Text="{Binding Nazwisko}" VerticalAlignment="Top" Width="225"/>
+        <TextBlock x:Name="Email" HorizontalAlignment="Left" Margin="50,224,0,0" TextWrapping="Wrap" Text="E-mail" FontSize="14" VerticalAlignment="Top" Height="29" Width="99" RenderTransformOrigin="0.55,0.167"/>
+        <TextBox x:Name="EmailTB" HorizontalAlignment="Left" Height="30" Margin="198,223,0,0" TextWrapping="Wrap" Text="{Binding Email}" VerticalAlignment="Top" Width="225"/>
+        <TextBlock x:Name="NrDowodu" HorizontalAlignment="Left" Margin="50,260,0,0" TextWrapping="Wrap" Text="Numer dowodu" FontSize="14" VerticalAlignment="Top" Height="28" Width="99" RenderTransformOrigin="0.55,0.167"/>
+        <TextBox x:Name="NrDowoduTB" HorizontalAlignment="Left" Height="30" Margin="198,258,0,0" TextWrapping="Wrap" Text="{Binding NrDowodu}" VerticalAlignment="Top" Width="225"/>
+        <Button Content="Dodaj klienta" Command="{Binding DodajKlienta}" HorizontalAlignment="Left" Margin="399,398,0,0" VerticalAlignment="Top" Width="219" Height="82"/>
+        <TextBlock x:Name="Blad" HorizontalAlignment="Left" Margin="84,431,0,0" TextWrapping="Wrap" FontSize="15" Foreground="Red" Text="{Binding TekstBledu}" VerticalAlignment="Top" RenderTransformOrigin="0.35,0.5" Height="49" Width="223"/>
+    </Grid>
+</Window>

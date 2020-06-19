@@ -1,0 +1,36 @@
+﻿<Window x:Class="ObslugaLoterii.Views.MenuListyZwyciezcowWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ObslugaLoterii"
+        mc:Ignorable="d"
+        Title="Menu Listy Zwyciężców" Height="600" Width="800"
+        xmlns:ViewModel="clr-namespace:ObslugaLoterii.ViewModels">
+    <Window.DataContext>
+        <ViewModel:MenuListyZwyciezcowVM/>
+    </Window.DataContext>
+    <Grid>
+        <TextBlock x:Name="Blad" TextAlignment="Center" FontWeight="Bold" HorizontalAlignment="Left" Margin="50,161,0,0" TextWrapping="Wrap" FontSize="15" Foreground="Red" Text="{Binding TekstPotwierdzenia}" VerticalAlignment="Top" RenderTransformOrigin="0.35,0.5" Height="24" Width="699"/>
+        <TextBlock HorizontalAlignment="Left" Margin="300,41,0,0" TextWrapping="Wrap" Text="Menu Listy Zwyciężców" VerticalAlignment="Top" Height="55" Width="349" FontSize="30" FontWeight="Bold"/>
+        <Button Content="Powrót" Command="{Binding PrzejdzDoWprowadzania}" HorizontalAlignment="Left" Margin="50,47,0,0" VerticalAlignment="Top" Width="200" Height="35" />
+        <Button Content="Generuj listę" Command="{Binding GenerujListe}" HorizontalAlignment="Left" Margin="50,106,0,0" VerticalAlignment="Top" Width="200" Height="50"/>
+        <Button Content="Udostępnij listę pracownikom filii" Command="{Binding UdostepnijListe}" HorizontalAlignment="Left" Margin="300,106,0,0" VerticalAlignment="Top" Width="200" Height="50" />
+        <Button Content="Wyślij e-maile do zwyciężców" Command="{Binding WyslijEmaile}" HorizontalAlignment="Left" Margin="550,106,0,0" VerticalAlignment="Top" Width="199" Height="50"/>
+        <DataGrid Name="ZwyciezcyDG"
+                  ItemsSource="{Binding ListaZwyciezcow, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" 
+                  HorizontalAlignment="Left" Height="340" 
+                  Margin="50,190,0,0" VerticalAlignment="Top" Width="700"
+                  IsReadOnly="True" AutoGenerateColumns="False" CanUserResizeColumns="True"
+                  ScrollViewer.CanContentScroll="True" 
+                  ScrollViewer.VerticalScrollBarVisibility="Auto"                  >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Imię i nazwisko" Width="240" Binding="{Binding ImieNazwisko, Mode=OneWay}"/>
+                <DataGridTextColumn Header="E-mail" Width="150" Binding="{Binding Email, Mode=OneWay}"/>
+                <DataGridTextColumn Header="Kwota" Width="100" Binding="{Binding Kwota, Mode=OneWay}"/>
+                <DataGridTextColumn Header="NumerDowodu" Width="100" Binding="{Binding NrDowodu, Mode=OneWay}"/>
+                <DataGridCheckBoxColumn Header="Czy Wypłacono" Width="100" Binding="{Binding CzyWyplacono, Mode=OneWay}"/>
+            </DataGrid.Columns>
+        </DataGrid >
+    </Grid>
+</Window>

@@ -1,0 +1,31 @@
+﻿<Window x:Class="ObslugaLoterii.Views.WprowadzanieKuponuWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ObslugaLoterii.Views"
+        mc:Ignorable="d"
+        Title="Wprowadzanie kuponu" Height="600" Width="800" 
+        xmlns:ViewModel="clr-namespace:ObslugaLoterii.ViewModels">
+    <Window.DataContext>
+        <ViewModel:WprowadzanieKuponuVM/>
+    </Window.DataContext>
+    <Grid>
+        <TextBlock HorizontalAlignment="Left" Margin="300,41,0,0" TextWrapping="Wrap" Text="Wprowadzanie kuponu" VerticalAlignment="Top" Height="55" Width="349" FontSize="30" FontWeight="Bold"/>
+        <Button Content="Powrót" Command="{Binding Powrot}" HorizontalAlignment="Left" Margin="50,47,0,0" VerticalAlignment="Top" Width="200" Height="35"/>
+        <TextBlock x:Name="KlientIstnieje" HorizontalAlignment="Left" Margin="50,130,0,0" TextWrapping="Wrap" Text="Klient istnieje w bazie" FontSize="18" VerticalAlignment="Top" Height="36" Width="200" RenderTransformOrigin="0.55,0.167"/>
+        <TextBlock x:Name="NrDowodu" HorizontalAlignment="Left" Margin="50,166,0,0" TextWrapping="Wrap" Text="Numer dowodu" FontSize="14" VerticalAlignment="Top" Height="36" Width="100" RenderTransformOrigin="0.55,0.167"/>
+        <ComboBox x:Name="NrDowoduCB" ItemsSource="{Binding NrDowoduList}" DisplayMemberPath="NrDowodu" SelectedItem="{Binding WybranyKlient}" HorizontalAlignment="Left" Margin="174,166,0,0" VerticalAlignment="Top" Width="144"/>
+        <TextBlock x:Name="KlientNieIstnieje" HorizontalAlignment="Left" Margin="50,232,0,0" TextWrapping="Wrap" FontSize="18" VerticalAlignment="Top" Height="36" Width="200" RenderTransformOrigin="0.55,0.167"><Run Text="Klient"/><Run Text=" nie"/><Run Text=" istnieje w bazie"/></TextBlock>
+        <Button Content="Dodaj klienta do bazy" Command="{Binding OtworzOknoDodajKlienta}" HorizontalAlignment="Left" Margin="50,273,0,0" VerticalAlignment="Top" Width="246" Height="57" />
+        <TextBlock x:Name="WytypowaneLiczby" HorizontalAlignment="Left" Margin="50,368,0,0" TextWrapping="Wrap" FontSize="18" VerticalAlignment="Top" Height="36" Width="200" RenderTransformOrigin="0.55,0.167" Text="Wytypowane liczby"/>
+        <TextBox x:Name="Liczba1" MaxLength="2" PreviewTextInput="NumberValidationTextBox" HorizontalAlignment="Left" Height="40" Margin="50,409,0,0" TextWrapping="Wrap" Text="{Binding Liczba1}" VerticalAlignment="Top" Width="40" RenderTransformOrigin="0.053,0" />
+        <TextBox x:Name="Liczba2" MaxLength="2" PreviewTextInput="NumberValidationTextBox" HorizontalAlignment="Left" Height="40" Margin="120,409,0,0" TextWrapping="Wrap" Text="{Binding Liczba2}" VerticalAlignment="Top" Width="40" RenderTransformOrigin="0.053,0"/>
+        <TextBox x:Name="Liczba3" MaxLength="2" PreviewTextInput="NumberValidationTextBox" HorizontalAlignment="Left" Height="40" Margin="190,409,0,0" TextWrapping="Wrap" Text="{Binding Liczba3}" VerticalAlignment="Top" Width="40" RenderTransformOrigin="0.053,0"/>
+        <TextBox x:Name="Liczba4" MaxLength="2" PreviewTextInput="NumberValidationTextBox" HorizontalAlignment="Left" Height="40" Margin="260,409,0,0" TextWrapping="Wrap" Text="{Binding Liczba4}" VerticalAlignment="Top" Width="40" RenderTransformOrigin="0.053,0"/>
+        <TextBox x:Name="Liczba5" MaxLength="2" PreviewTextInput="NumberValidationTextBox" HorizontalAlignment="Left" Height="40" Margin="330,409,0,0" TextWrapping="Wrap" Text="{Binding Liczba5}" VerticalAlignment="Top" Width="40" RenderTransformOrigin="0.053,0"/>
+        <TextBox x:Name="Liczba6" MaxLength="2" PreviewTextInput="NumberValidationTextBox" HorizontalAlignment="Left" Height="40" Margin="400,409,0,0" TextWrapping="Wrap" Text="{Binding Liczba6}" VerticalAlignment="Top" Width="40" RenderTransformOrigin="0.053,0"/>
+        <Button Content="Zatwierdź kupon" Command="{Binding ZatwierdzKupon}" HorizontalAlignment="Left" Margin="400,473,0,0" VerticalAlignment="Top" Width="246" Height="57" RenderTransformOrigin="0.305,0.614"/>
+        <TextBlock x:Name="Blad" HorizontalAlignment="Left" Margin="50,473,0,0" TextWrapping="Wrap" FontSize="15" Foreground="Red" Text="{Binding TekstBledu}" VerticalAlignment="Top" RenderTransformOrigin="0.35,0.5" Height="49" Width="223"/>
+    </Grid>
+</Window>
